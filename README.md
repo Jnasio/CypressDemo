@@ -1,5 +1,5 @@
 # CypressProject
 
-npm install
+Run: `npm install`
 
-Open Cypress: npx cypress open OR yarn cypress open
+Run Cypress: `npx cypress open` OR `yarn cypress open`
