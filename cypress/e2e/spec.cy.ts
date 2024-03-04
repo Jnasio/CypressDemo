@@ -7,12 +7,12 @@ const number = faker.number.int({min: 0, max: 23});
 const randomEmail = faker.internet.email();
 const paragraphs = faker.lorem.paragraphs(1);
 let typedValue: any;
-let elementValue: number;
 
 
 describe('Sumbit Form', () => {
   it('passes', () => {
     cy.visit('https://earth-cypress.vercel.app/');
+    cy.viewport(window.screen.width, window.screen.height);
     cy.get('.links > .secund-btn')
       .click();
     cy.get('#firstname')
@@ -84,14 +84,17 @@ describe('Sumbit Form', () => {
 describe('Approve Form', () => {
   it('passes', () => {
     cy.visit('https://earth-cypress.vercel.app/admin');
+    cy.viewport(window.screen.width, window.screen.height);
     cy.get(':nth-child(2) > .input-field')
       .type('admin', {delay: 100});
     cy.get(':nth-child(3) > .input-field')
       .type('admin', {delay: 100});
     cy.get('.button1')
-      .click();
+      .click()
+      .wait(2000);
     cy.get('.pending-card')
-      .click();
+      .click()
+      .wait(2000);
     cy.get(':nth-child(1) > .admin-card > .admin-card-body > .button-group > .btn-approve')
       .click();
   })
